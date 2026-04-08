@@ -1,14 +1,13 @@
 FROM node:18-alpine
 
+RUN apk add --no-cache jq
+
 WORKDIR /app
 
-# Kopieer de volledige ControlMySpa code
 COPY controlmyspa/ /app/
 
-# Installeer dependencies
 RUN npm install --production
 
-# Voeg run script toe
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
