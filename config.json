@@ -1,0 +1,28 @@
+{
+  "name": "ControlMySpa MQTT Bridge",
+  "version": "1.0.0",
+  "slug": "controlmyspa_mqtt",
+  "description": "Bridge tussen ControlMySpa cloud en jouw lokale MQTT broker.",
+  "arch": ["amd64", "armv7", "aarch64"],
+  "startup": "services",
+  "boot": "auto",
+  "ports": {},
+  "ports_description": {},
+  "map": ["config"],
+  "options": {
+    "cms_username": "",
+    "cms_password": "",
+    "mqtt_host": "core-mosquitto",
+    "mqtt_port": 1883,
+    "mqtt_username": "",
+    "mqtt_password": ""
+  },
+  "schema": {
+    "cms_username": "str",
+    "cms_password": "str",
+    "mqtt_host": "str",
+    "mqtt_port": "int",
+    "mqtt_username": "str?",
+    "mqtt_password": "str?"
+  }
+}
