@@ -1,0 +1,14 @@
+{
+  "name": "controlmyspa",
+  "version": "1.0.0",
+  "description": "ControlMySpa API client",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "mqtt": "^5.0.0",
+    "ws": "^8.13.0"
+  }
+}
