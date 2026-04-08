@@ -2,12 +2,13 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-RUN apk add --no-cache git
+# Kopieer de volledige ControlMySpa code
+COPY controlmyspa/ /app/
 
-RUN git clone https://github.com/ccutrer/controlmyspa.git .
+# Installeer dependencies
+RUN npm install --production
 
-RUN npm install
-
+# Voeg run script toe
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
 
