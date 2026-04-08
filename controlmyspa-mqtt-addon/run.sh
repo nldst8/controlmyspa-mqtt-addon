@@ -1,11 +1,14 @@
 #!/bin/sh
 
-export CMS_USERNAME=$(bashio::config 'cms_username')
-export CMS_PASSWORD=$(bashio::config 'cms_password')
+CONFIG_PATH=/data/options.json
 
-export MQTT_HOST=$(bashio::config 'mqtt_host')
-export MQTT_PORT=$(bashio::config 'mqtt_port')
-export MQTT_USERNAME=$(bashio::config 'mqtt_username')
-export MQTT_PASSWORD=$(bashio::config 'mqtt_password')
+export CMS_USERNAME=$(jq -r '.cms_username' $CONFIG_PATH)
+export CMS_PASSWORD=$(jq -r '.cms_password' $CONFIG_PATH)
 
-node index.js
+export MQTT_HOST=$(jq -r '.mqtt_host' $CONFIG_PATH)
+export MQTT_PORT=$(jq -r '.mqtt_port' $CONFIG_PATH)
+export MQTT_USERNAME=$(jq -r '.mqtt_username' $CONFIG_PATH)
+export MQTT_PASSWORD=$(jq -r '.mqtt_password' $CONFIG_PATH)
+
+echo "Starting ControlMySpa MQTT Bridge..."
+node /app/index.js
